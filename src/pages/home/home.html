@@ -8,11 +8,41 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+    <div style="text-align:center">
+        <h1>
+          Welcome to {{ title }}!
+        </h1>
+      </div>
+      <div style="max-width: 500px; display: inline-block;">
+        <textarea #inputMessageTest rows="40" cols="50"></textarea>
+        <br>
+        <emoji-input #inputMessage 
+          autofocus
+          [(model)]="text"
+          [inputClass]="'red'"
+          [autofocus]="true"
+          [closeAfterSelection]="false"
+          style="display: inline-block;"
+          (click)="openPopup(false)"
+          (modelChange)="textChange($event)"
+          (setPopupAction)="setPopupAction($event)">
+        </emoji-input>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
-</ion-content>
+        <button ion-button type="button" name="btnSend"  style="display: inline-block; height: 25px" (click)="sendMessage()">
+            Send
+        </button>
+
+
+        <button ion-button type="button" name="button"  style="display: inline-block;" (click)="openPopup()" *ngIf="false">
+          Click me :)
+        </button>
+        <button ion-button type="button" name="buttonBackspace"  style="display: inline-block;" (click)="backspace()" *ngIf="false">
+          Apagar
+        </button>
+      </div>
+    </ion-content>
+    
+    <!-- (ngModelChange)="textChange($event)" -->
+<ion-footer>
+</ion-footer>
